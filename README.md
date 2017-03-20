@@ -1,8 +1,6 @@
 ## 使用原生 js 来替代 jQuery
 
-----
-
-### 获取元素
+#### 获取元素
 
 ```js
 function $(el) {
@@ -16,39 +14,39 @@ function $$(el) {
 ```
 
 
-### 添加元素到匹配的元素集合（add）
+#### 添加元素到匹配的元素集合（add）
 
 ```js
 $$(el).push(newEl)
 ```
 
-### 添加类名（addClass）
+#### 添加类名（addClass）
 
 ```js
 el.classList.add(className)
 ```
 
-### 插入元素（after）
+#### 插入元素（after）
 
 ```js
 el.parentNode.insertBefore(newEl, el.nextSibling)
 ```
 
-### 插入元素（append）
+#### 插入元素（append）
 
 ```js
 el.appendChild(newEl)
 ```
 
 
-### 插入元素（before）
+#### 插入元素（before）
 
 ```js
 el.parentNode.insertBefore(newEl, el)
 ```
 
 
-### 获取/设置 元素属性（attr）
+#### 获取/设置 元素属性（attr）
 
 ```js
 // 获取
@@ -58,19 +56,19 @@ el.getAttributr("src")
 el.setAttribute("src", "../img/foo.png")
 ```
 
-### 筛选（children）
+#### 筛选（children）
 
 ```js
 el.children
 ```
 
-### 深度拷贝（clone）
+#### 深度拷贝（clone）
 
 ```js
 el.cloneNode()
 ```
 
-### closest
+#### closest
 
 从元素本身开始，在 DOM 树逐级向上级元素匹配，并返回最先匹配的祖先元素 
 
@@ -88,4 +86,36 @@ function closest(el, selector = false) {
     return null
     
 }
+```
+
+#### 获取/设置 CSS
+
+```js
+// 获取
+// 解决当 style 值为 auto 时，返回 auto 的问题
+const win = el.ownerDocument.defaultView
+
+// null 为不反会伪类元素
+win.getComputedStyle(el, null).color
+
+// 设置
+el.style.color = "red";
+
+// 一次性设置多个样式
+const cssObj = {color: "red", font-size: "18px"}
+
+for (let k in cssObj) {
+    el.style[key] = cssObj[k];
+}
+
+// 方法二
+const cssText = "color: red; font-size: 18px"
+
+el.style.cssText += cssText;
+```
+
+#### 移除集合中匹配元素的所有子节点
+
+```js
+el.innerHTML = "";
 ```
