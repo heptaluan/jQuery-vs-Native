@@ -1,5 +1,8 @@
 ## 使用原生 js 来替代 jQuery
 
+
+
+
 #### 获取元素
 
 ```js
@@ -14,11 +17,16 @@ function $$(el) {
 ```
 
 
+
+
 #### 添加元素到匹配的元素集合（add）
 
 ```js
 $$(el).push(newEl)
 ```
+
+
+
 
 #### 添加类名（addClass）
 
@@ -26,11 +34,20 @@ $$(el).push(newEl)
 el.classList.add(className)
 ```
 
+
+
+
+## DOM 相关
+
+
 #### 插入元素（after）
 
 ```js
 el.parentNode.insertBefore(newEl, el.nextSibling)
 ```
+
+
+
 
 #### 插入元素（append）
 
@@ -39,11 +56,15 @@ el.appendChild(newEl)
 ```
 
 
+
+
 #### 插入元素（before）
 
 ```js
 el.parentNode.insertBefore(newEl, el)
 ```
+
+
 
 
 #### 获取/设置 元素属性（attr）
@@ -56,17 +77,17 @@ el.getAttributr("src")
 el.setAttribute("src", "../img/foo.png")
 ```
 
-#### 筛选（children）
 
-```js
-el.children
-```
+
 
 #### 深度拷贝（clone）
 
 ```js
 el.cloneNode()
 ```
+
+
+
 
 #### closest
 
@@ -88,6 +109,9 @@ function closest(el, selector = false) {
 }
 ```
 
+
+
+
 #### 获取/设置 CSS
 
 ```js
@@ -95,7 +119,7 @@ function closest(el, selector = false) {
 // 解决当 style 值为 auto 时，返回 auto 的问题
 const win = el.ownerDocument.defaultView
 
-// null 为不反会伪类元素
+// null 为不返回伪类元素
 win.getComputedStyle(el, null).color
 
 // 设置
@@ -114,8 +138,57 @@ const cssText = "color: red; font-size: 18px"
 el.style.cssText += cssText;
 ```
 
+
+
+
 #### 移除集合中匹配元素的所有子节点
 
 ```js
 el.innerHTML = "";
+```
+
+
+
+
+
+## 筛选元素
+
+
+#### 筛选元素（children）
+
+```js
+el.children
+```
+
+
+
+
+
+#### 筛选元素（find）
+
+```js
+el.querySelectorAll(selector)
+```
+
+
+
+
+
+#### 筛选元素（has）
+
+```js
+$$(selector).filter(el => el.querySelector("div") !== null)
+```
+
+
+
+
+
+
+
+
+#### 筛选元素（hasClass）
+
+```js
+el.classList.contains(className)
 ```
