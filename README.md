@@ -192,3 +192,29 @@ $$(selector).filter(el => el.querySelector("div") !== null)
 ```js
 el.classList.contains(className)
 ```
+
+
+
+
+
+
+
+
+#### 获取/设置 元素的 html 内容（html()）
+
+```js
+el.innerHTML = htmlString
+```
+
+
+
+
+
+
+
+
+#### 获取第一个元素的当前计算高度值 （innerHeight）
+
+```js
+el.clientHeight
+```
