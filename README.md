@@ -333,5 +333,78 @@ el.clientWidth
 
 
 
+#### 获取元素当前坐标（position）
+
+```js
+// jQuery
+$(el).position()
+
+// Native
+left: el.offsetLeft
+
+top: el.offsetTop
+```
+
+
+
+
+#### 删除元素（remove）
+
+```js
+// jQuery
+$(el).remove()
+
+// Native
+el.parentNode.removeChild(el)
+```
+
+
+
+
+#### 替换元素（replaceWith）
+
+```js
+// jQuery
+$(el).replaceWith("<div></div>")
+
+// Native
+el.parentNode.replaceChild(newEl, el)
+
+// 标签的话用这个
+el.outerHTML = "<div></div>"
+```
+
+
+
+
+
+#### 滚动条位置（scrollTop）
+
+```js
+// jQuery
+$(el).scrollTop()
+
+$(el).scrollTop(20)
+
+// Native
+el.scrollTop
+
+el.scrollTop = 20
+
+// 如果全局对象为 window
+document.documentElement.scrollTop = 20
+
+document.body.scrollTop = 20
+```
+
+
+
+
+
+#### 过滤元素（兄弟节点 siblings）
+
+待续..
+
+
 
 
