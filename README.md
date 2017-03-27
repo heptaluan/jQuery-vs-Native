@@ -401,9 +401,33 @@ document.body.scrollTop = 20
 
 
 
-#### 过滤元素（兄弟节点 siblings）
+#### 过滤元素（slice）
 
-待续..
+```js
+// jQuery
+$(selector).slice(0, 1)
+
+
+// Native
+$$(selector).slice(0, 1)
+```
+
+
+
+
+#### 获取文本内容（text）
+
+```js
+// jQuery
+$(el).text(str)
+
+
+// Native
+el.textContent = str
+```
+
+
+
 
 
 
