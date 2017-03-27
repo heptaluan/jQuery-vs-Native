@@ -429,6 +429,20 @@ el.textContent = str
 
 
 
+#### class 切换（toggleClass）
+
+```js
+// jQuery
+$(el).toggleClass(className)
+
+
+// Native
+el.classList.toggle(className)
+```
+
+
+
+
 
 
 
