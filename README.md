@@ -442,7 +442,33 @@ el.classList.toggle(className)
 
 
 
+#### 获取元素的值（val）
 
+```js
+// jQuery
+$(el).val(value)
+
+
+// Native
+el.value = value
+```
+
+
+
+
+
+#### 包裹元素（wrap）
+
+```js
+// jQuery
+$(el).wrap("<div></div>")
+
+// Native
+建议使用 document.createElement + appendChild 来添加元素
+
+// 这样性能很差
+el.outerHTML = `<div>${el.outerHTML}</div>`
+```
 
 
 
