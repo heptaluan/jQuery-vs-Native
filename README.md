@@ -472,3 +472,20 @@ el.outerHTML = `<div>${el.outerHTML}</div>`
 
 
 
+
+
+## 通用方法
+
+
+#### 检查是否某个元素的后代（contains）
+```js
+// jQuery
+$.contains(el, child)
+
+
+// Native
+el !== child && el.contains(child)
+```
+
+
+
