@@ -21,6 +21,20 @@ function $$(el) {
 }
 ```
 
+常用的 ```class```、```id```、属性 选择器都可以使用 ```document.querySelector``` 或 ```document.querySelectorAll``` 替代，区别是
+
+* ```document.querySelector``` 返回第一个匹配的 ```Element```
+
+* ```document.querySelectorAll``` 返回所有匹配的 ```Element``` 组成的 ```NodeList```。它可以通过 ```[].slice.call()``` 把它转成 ```Array```
+
+* 如果匹配不到任何 ```Element```，```jQuery``` 返回空数组 ```[]```，但 ```document.querySelector``` 返回 ```null```，注意空指针异常
+
+但是需要注意的是：
+
+```document.querySelector``` 和 ```document.querySelectorAll``` 性能很差
+
+如果想提高性能，尽量使用 ```document.getElementById```、```document.getElementsByClassName``` 或 ```document.getElementsByTagName```
+
 
 
 ## DOM 相关
@@ -488,4 +502,188 @@ el !== child && el.contains(child)
 ```
 
 
+
+
+
+#### each
+
+用来无缝迭代对象和数组
+
+```js
+// jQuery
+$.each(array, (index, value) => {})
+
+
+// Native
+array.forEach( (value, index) => {} )
+```
+
+
+
+
+
+
+#### extend
+
+将两个或更多对象的内容合并到第一个对象
+
+```js
+// jQuery
+$.extend({}, {a: 1}, {b: 2})  // {a: 1, b: 2}
+
+
+// ES6
+Object.assign({}, {a: 1}, {b: 2});  // {a: 1, b: 2}
+```
+
+
+
+
+
+
+
+
+
+#### grep
+
+查找满足过滤函数的数组元素（原数组不受影响）
+
+```js
+// jQuery
+$.grep([10, 11, 3, 4], n => n > 9)
+
+
+// Native
+[10, 11, 3, 4].filter( n => n > 9)
+```
+
+
+
+
+
+
+
+
+
+
+#### inArray
+
+在数组长查找指定值并返回它的索引（若没找到，则返回 -1）
+
+```js
+// jQuery
+$.inArray(item, array)
+
+
+// Native
+array.indexOf(item) > -1
+
+// ES6
+array.includes(item)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### makeArray
+
+转换一个类数组对象成为真正的 JavaScript 数组
+
+```js
+// jQuery
+$.makeArray(arrayLike)
+
+
+// Native
+[].slice.call(arrayLike)
+
+// ES6
+Array.from(arrayLike)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### merge
+
+合并两个数组内容到第一个数组
+
+```js
+// jQuery
+$.merge(arr1, arr2)
+
+
+// Native
+function merge (...args) {
+    return [].concat(...args)
+}
+```
+
+
+
+
+
+
+
+#### parseJSON
+
+合并两个数组内容到第一个数组
+
+```js
+// jQuery
+$.parseJSON(str)
+
+
+// Native
+JSON.parse(str)
+```
+
+
+
+
+
+
+
+
+#### proxy
+
+接受一个函数，然后返回一个新函数，并且这个函数始终保持了特定的上下文
+
+```js
+// jQuery
+$.proxy(fn, context)
+
+
+// Native
+fn.bind(context)
+```
+
+
+
+待续...
 
